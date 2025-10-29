@@ -1,8 +1,69 @@
-.nav-container {
-    display: flex;
+@mixin respond-to($breakpoint) {
+    @if $breakpoint ==phone {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==tablet {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==desktop {
+        @media (min-width: 1025px) {
+            @content;
+        }
+    }
 }
 
-nav ul {
+.nav-container {
     display: flex;
-    flex-direction: row;
+    margin: 0 auto;
+    height: 70px;
+    justify-content: space-between;
+    border-radius: 10px;
+    filter: blur(30%);
+    
+
+    a {
+        color: #fff;
+        line-height: 65px;
+    }
+    
+    div {
+        
+        a {
+            font-size: 2em;
+            
+        }
+    }
+    
+    
+    
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        
+        a {
+            font-size: 1.3em;
+            width: 150px;
+        }
+
+        @include respond-to(phone) {
+            //dssssssssssssssssssssssssssssss
+        }
+    }
+
+    @include respond-to(desktop) {
+        width: 75vw;
+    }
+
+    @include respond-to(tablet) {
+        width: 100vw;
+    }
+
 }

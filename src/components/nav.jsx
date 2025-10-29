@@ -1,21 +1,28 @@
 import React from "react";
 import "./nav.scss";
+import { Link } from "react-router-dom";
 
-export default function Nav() {
+export default function Navbar() {
+ 
 
     return (
         <>
             <div className="nav-container">
-                <div><b>De</b> ZSEM</div>
+                <div> 
+                    <Link to="/"><b>Debaty</b> ZSEM</Link>
+                </div>
                 <nav>
-                    <ul>
-                        <li><a>Rejestracja</a></li>
-                        <li><a>Tabela</a></li>
-                        <li><a>Zasady</a></li>
-                        <li><a href="">Regulamin</a></li>
-                    </ul>
+                    <Link to="/rejestracja">Rejestracja</Link>
+                    <Link to="/tabela">Tabela</Link>
+                    <Link to="/zasady">Zasady</Link>
+                    <Link to="/regulamin">Regulamin</Link>
                 </nav>
             </div>
         </>
     );
+}
+
+async function onClick() {
+    const navigationPromise = navigate('/pages/rejestracja');
+    await navigationPromise;
 }
