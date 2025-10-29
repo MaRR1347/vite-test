@@ -1,0 +1,91 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 768px) { @content; }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: 1024px) { @content; }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 1025px) { @content; }
+  }
+}
+
+/* .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+main {
+  width: 100vw;
+  
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    clear: both;
+    
+    p {
+      font-size: 4em;
+      margin: 0;
+      font-weight: 900;
+    }
+  }
+
+  @include respond-to(desktop) {
+    header {
+      width: 65vw;
+      float: left;
+    }
+    nav {
+      width: 35vw;
+      float: left;
+    }
+  }
+  
+}
+
+
+.logo {
+  position: relative;
+  left: 20px;
+  width: 150px;
+  height: 150px;
+  
+  @media (max-width: 550px) {
+    left: 0;
+    top: 20px;
+  }
+  ::after {
+    content: "";
+    box-shadow: 75px 75px 80px 40px grey;
+    display: ruby ;
+    position: relative;
+    z-index: -1;
+  }
+}
+
+
+// Slide animation
+.slide-in-from-below {
+  animation: 1.5s ease-out 0s 1 slideInFromBelow forwards;
+}
+
+@keyframes slideInFromBelow {
+  0% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+

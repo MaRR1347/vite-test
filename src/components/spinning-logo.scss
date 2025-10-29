@@ -1,0 +1,22 @@
+@keyframes logo-spin {
+    from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-container {
+  position: absolute;
+}
+
+.logo-gear {
+  position: absolute;
+  animation: logo-spin infinite 25s linear;
+  width: 150px;
+}
+.logo-content {
+  position: absolute;
+  width: 150px;
+}
